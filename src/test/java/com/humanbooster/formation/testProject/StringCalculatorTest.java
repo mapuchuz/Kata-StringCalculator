@@ -39,4 +39,11 @@ public class StringCalculatorTest {
 		Assert.assertEquals(3, actual);
 	}
 
+	@Test
+	// Test if the method add return the sum of the int in the string
+	public void acceptePleinDeParametres() {
+		final int actual = StringCalculator.add("1,2,3");
+		Assert.assertEquals(6, actual);
+	}
+
 }

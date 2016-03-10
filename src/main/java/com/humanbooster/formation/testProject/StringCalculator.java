@@ -15,9 +15,12 @@ public class StringCalculator {
 			// return the single integer of the string
 			return Integer.valueOf(string);
 		}else {
-			// return the sum of the 2 intergers in the string
-			String [] valuesInString = string.split(",");
-			return Integer.valueOf(valuesInString[0])+ Integer.valueOf(valuesInString[1]);
+			// return the sum of the N intergers in the string
+			String[] valuesInString = string.split(",");
+			int sum=0;
+			for(String nombre: valuesInString)
+				sum+=Integer.valueOf(nombre);
+			return sum; 
 		}
 			
 	}
