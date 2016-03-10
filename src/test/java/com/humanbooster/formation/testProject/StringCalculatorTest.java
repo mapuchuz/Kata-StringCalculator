@@ -19,6 +19,12 @@ public class StringCalculatorTest {
 		final int actual = StringCalculator.add("1");
 		Assert.assertEquals(1, actual);
 	}
-	
+
+	@Test
+	// Test if the method add return the sum of the int in the string
+	public void shouldReturnTheSumOfIntInString() {
+		final int actual = StringCalculator.add("1,2");
+		Assert.assertEquals(3, actual);
+	}
 
 }

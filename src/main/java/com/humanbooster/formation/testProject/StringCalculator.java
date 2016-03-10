@@ -11,9 +11,13 @@ public class StringCalculator {
 		// return 0 if the string is empty
 		if(string.isEmpty()){
 			return 0;
-		}else{
+		}else if (!string.contains(",")){
 			// return the single integer of the string
 			return Integer.valueOf(string);
+		}else {
+			// return the sum of the 2 intergers in the string
+			String [] valuesInString = string.split(",");
+			return Integer.valueOf(valuesInString[0])+ Integer.valueOf(valuesInString[1]);
 		}
 			
 	}
