@@ -97,6 +97,9 @@ public class StringCalculatorTest {
 
 	}
 	
-	
+	@Test(expected=NegativeNumberNotAllowed.class)
+	public void negativesAreForbidden() {
+		StringCalculator.add("5,-3");
+	}
 
 }
