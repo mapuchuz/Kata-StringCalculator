@@ -45,5 +45,58 @@ public class StringCalculatorTest {
 		final int actual = StringCalculator.add("1,2,3");
 		Assert.assertEquals(6, actual);
 	}
+	
+	@Test(expected=NumberFormatException.class)
+	public void argumentNonNombre() {
+		StringCalculator.add("1,2glouglou");
+	}
+	
+	
+//	Allow the Add method to handle new lines
+//	between numbers (instead of commas).
+//	the following input is ok: “1\n2,3” (will equal 6)
+
+	@Test()
+	public void handlenewlines() {
+		
+		int expected= 6;
+		int actual = StringCalculator.add("1\n2,3");
+		Assert.assertEquals(expected, actual);
+		
+	}
+	
+
+//	that looks like this: “//
+//	[delimiter]\n[numbers…]”
+	@Test()
+	public void withUserDelimiter() {
+		
+		int expected= 3;
+		int actual = StringCalculator.add("//;\n1;2");
+		Assert.assertEquals(expected, actual);
+		
+	}	
+	
+//	bigger than 1000 should be ignored
+	@Test()
+	public void biggerThan1000Ignored() {
+		
+		int expected= 2;
+		int actual = StringCalculator.add("2,1001");
+		Assert.assertEquals(expected, actual);
+		
+	}
+	
+//	[***]\n1***2***3” should return 6
+	@Test()
+	public void delimiterMultiChar() {
+
+		int expected= 6;
+		int actual = StringCalculator.add("//[***]\n1***2***3");
+		Assert.assertEquals(expected, actual);
+
+	}
+	
+	
 
 }
